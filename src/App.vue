@@ -1,28 +1,36 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app" class="blue-grey darken-4">
+    <app-header />
+    <sidebar/>
+    <router-view />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+import AppHeader from './components/AppHeader'
+import Sidebar from './components/Sidebar'
 
 export default {
   name: 'app',
+  data() {
+    return {
+
+    }
+  },
   components: {
-    HelloWorld
+    AppHeader,
+    Sidebar
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss">
+  @import '~materialize-css/dist/css/materialize.css';
+
+  #app {
+    height: 100vh;
+    color: #eceff1
+  }
+
 </style>
