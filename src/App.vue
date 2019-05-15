@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="blue-grey darken-4">
-    <app-header />
-    <sidebar/>
+    <app-header @toggleSidebar="toggleSidebar" />
+    <sidebar ref="appsidebar" />
     <router-view />
   </div>
 </template>
@@ -21,6 +21,11 @@ export default {
   components: {
     AppHeader,
     Sidebar
+  },
+  methods: {
+    toggleSidebar() {
+      this.$refs.appsidebar.toggle()
+    }
   }
 }
 </script>
@@ -30,7 +35,14 @@ export default {
 
   #app {
     height: 100vh;
-    color: #eceff1
+    color: #eceff1;
+    overflow: hidden;
+  }
+
+  .wrapper {
+        overflow: auto;
+        height: 100vh;
+        padding-top: 56px;
   }
 
 </style>

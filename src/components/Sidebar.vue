@@ -1,11 +1,14 @@
 <template>
     <ul id="slide-out" class="sidenav blue-grey darken-3"  ref="sidebar">
-        <li
+        <router-link 
+            tag="li"
+            exact-active-class="active"
             v-for="route in this.$router.options.routes" 
             :key="route.name"
+            :to="route.path"
         >
-            <router-link class="waves-effect text-blue-grey text-lighten-5" :to="route.path">{{route.name}}</router-link>
-        </li>
+            <a class="waves-effect text-blue-grey text-lighten-5" >{{route.name}}</a>
+        </router-link>
     </ul>
 </template>
 
@@ -25,6 +28,11 @@ export default {
         this.sidebar = window.M.Sidenav.init(this.$refs.sidebar, {
             draggable: true
         });
+    },
+    methods: {
+        toggle() {
+            this.sidebar.open()
+        }
     }
 }
 </script>
